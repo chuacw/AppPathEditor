@@ -1,0 +1,83 @@
+object FrameAppPathSelector: TFrameAppPathSelector
+  Align = Client
+  Size.Width = 397.000000000000000000
+  Size.Height = 431.000000000000000000
+  Size.PlatformDefault = False
+  object pnlAppPathsSelector: TPanel
+    Align = Client
+    Size.Width = 397.000000000000000000
+    Size.Height = 431.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'pushpanel'
+    TabOrder = 4
+    object gbApplication: TGroupBox
+      Align = Client
+      ClipChildren = True
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 1.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 1.000000000000000000
+      Size.Width = 395.000000000000000000
+      Size.Height = 371.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'groupboxstyle'
+      Text = 'App Paths keys'
+      TabOrder = 1
+      object lbAppPaths: TListBox
+        Align = Client
+        Margins.Top = 15.000000000000000000
+        PopupMenu = PopupMenu1
+        Size.Width = 395.000000000000000000
+        Size.Height = 356.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'transparentlistboxstyle'
+        TabOrder = 1
+        OnMouseUp = lbAppPathsMouseUp
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        OnItemClick = lbAppPathsItemClick
+        Viewport.Width = 395.000000000000000000
+        Viewport.Height = 356.000000000000000000
+      end
+    end
+    object pnlBottom: TPanel
+      Align = Bottom
+      Position.Y = 373.000000000000000000
+      Size.Width = 397.000000000000000000
+      Size.Height = 58.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'pushpanel'
+      TabOrder = 0
+      object btnLoadKey: TButton
+        ModalResult = 1
+        Position.X = 32.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 97.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Load App Path'
+        OnClick = btnLoadKeyClick
+      end
+      object btnCancel: TButton
+        Anchors = [akRight, akBottom]
+        ModalResult = 2
+        Position.X = 311.000000000000000000
+        Position.Y = 18.000000000000000000
+        TabOrder = 2
+        Text = 'Cancel'
+        OnClick = btnCancelClick
+      end
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 241
+    Top = 176
+    object miDeleteAppPath: TMenuItem
+      Text = 'Delete'
+      OnClick = miDeleteAppPathClick
+    end
+  end
+end

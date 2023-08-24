@@ -1,0 +1,80 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D9F86C07-8C89-4FFF-BF54-EA7A611F0DCF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="AppPathEditor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FMXAppPathEditor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\TFDD\TextFileDeviceDriver.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AppPathEditor">
+        <MSBuild Projects="AppPathEditor.dproj"/>
+    </Target>
+    <Target Name="AppPathEditor:Clean">
+        <MSBuild Projects="AppPathEditor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AppPathEditor:Make">
+        <MSBuild Projects="AppPathEditor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXAppPathEditor">
+        <MSBuild Projects="FMXAppPathEditor.dproj"/>
+    </Target>
+    <Target Name="FMXAppPathEditor:Clean">
+        <MSBuild Projects="FMXAppPathEditor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXAppPathEditor:Make">
+        <MSBuild Projects="FMXAppPathEditor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TextFileDeviceDriver">
+        <MSBuild Projects="..\TFDD\TextFileDeviceDriver.dproj"/>
+    </Target>
+    <Target Name="TextFileDeviceDriver:Clean">
+        <MSBuild Projects="..\TFDD\TextFileDeviceDriver.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TextFileDeviceDriver:Make">
+        <MSBuild Projects="..\TFDD\TextFileDeviceDriver.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AppPathEditor;FMXAppPathEditor;TextFileDeviceDriver"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AppPathEditor:Clean;FMXAppPathEditor:Clean;TextFileDeviceDriver:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AppPathEditor:Make;FMXAppPathEditor:Make;TextFileDeviceDriver:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+    <ItemGroup Condition="'$(BuildGroup)'=='All platforms: Debug/Release Win32/Win54'">
+        <BuildGroupProject Include="..\TFDD\TextFileDeviceDriver.dproj">
+            <ProjectGuid>{4CE25823-CFEB-4E35-B9F3-960F5CEFD70C}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="AppPathEditor.dproj">
+            <ProjectGuid>{2AF08BB8-396D-4220-B4E2-9B2F1195E4BB}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="FMXAppPathEditor.dproj">
+            <ProjectGuid>{03757972-AE58-47FA-9B30-A15C6D2AC589}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+    </ItemGroup>
+</Project>

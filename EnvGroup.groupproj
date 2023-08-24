@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5F63AE48-D9CA-402E-AB1C-F7DF5ED5BDAC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="AppPathEditor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TestEnvBlock.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AppPathEditor">
+        <MSBuild Projects="AppPathEditor.dproj"/>
+    </Target>
+    <Target Name="AppPathEditor:Clean">
+        <MSBuild Projects="AppPathEditor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AppPathEditor:Make">
+        <MSBuild Projects="AppPathEditor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestEnvBlock">
+        <MSBuild Projects="TestEnvBlock.dproj"/>
+    </Target>
+    <Target Name="TestEnvBlock:Clean">
+        <MSBuild Projects="TestEnvBlock.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestEnvBlock:Make">
+        <MSBuild Projects="TestEnvBlock.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AppPathEditor;TestEnvBlock"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AppPathEditor:Clean;TestEnvBlock:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AppPathEditor:Make;TestEnvBlock:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
