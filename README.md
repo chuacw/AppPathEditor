@@ -10,5 +10,5 @@
 If you choose Save, you'll save the App Path with the application name.
 If you choose Save As, you'll be able to select what name to save the App Paths under.
 
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\App Paths
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\App Paths    
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths
